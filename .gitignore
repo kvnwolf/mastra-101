@@ -1,0 +1,10 @@
+*.db
+*.db-*
+*.tsbuildinfo
+.claude/settings.local.json
+.DS_Store
+.env.local
+.mastra
+dist
+node_modules
+out

@@ -1,0 +1,38 @@
+{
+  "name": "mastra-101",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "mastra build",
+    "check:deps": "knip",
+    "check:lint": "biome check",
+    "check:tsc": "tsc --build",
+    "dev": "mastra dev",
+    "setup": "bun install && simple-git-hooks install && bun run validate",
+    "start": "mastra start",
+    "update": "ncu --interactive --format group",
+    "validate": "bun run build && bun run check:lint && bun run check:tsc && bun run check:deps"
+  },
+  "dependencies": {
+    "@ai-sdk/gateway": "^2.0.7",
+    "@mastra/core": "^0.24.0",
+    "@mastra/libsql": "^0.16.2",
+    "@mastra/loggers": "^0.10.19",
+    "@mastra/memory": "^0.15.11",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.3.4",
+    "@types/node": "^24.10.0",
+    "knip": "^5.68.0",
+    "mastra": "^0.18.0",
+    "npm-check-updates": "^19.1.2",
+    "simple-git-hooks": "^2.13.1",
+    "typescript": "^5.9.3",
+    "ultracite": "^6.3.2"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "bun run biome check --staged --fix --no-errors-on-unmatched && git update-index --again"
+  }
+}
