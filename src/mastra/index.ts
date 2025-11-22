@@ -1,11 +1,11 @@
 import { Mastra } from "@mastra/core/mastra";
 import { LibSQLStore } from "@mastra/libsql";
 import { PinoLogger } from "@mastra/loggers";
-import { financialAgent } from "./agents/financial-agent";
+import { personalAssistant } from "./agents/personal-assistant";
 
 export const mastra = new Mastra({
   agents: {
-    financialAgent,
+    personalAssistant,
   },
   storage: new LibSQLStore({
     url: ":memory:",
